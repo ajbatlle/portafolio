@@ -1,7 +1,7 @@
 // Carrusel de imágenes por producto
 const products = [
   [
-    "https://picsum.photos/id/1011/800/600",
+    "https://github.com/ajbatlle/portafolio/blob/main/img/foto2.png?raw=true",
     "https://picsum.photos/id/1012/800/600",
     "https://picsum.photos/id/1013/800/600"
   ],
