@@ -1,0 +1,72 @@
+
+
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Antonio Batlle</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header>
+    <div class="info">
+      <div class="nombre">Antonio Batlle</div>
+      <div class="rol">Diseñador / Escritor</div>
+    </div>
+  </header>
+
+  <!-- Botón flotante + menú -->
+  <div class="floating-button" onclick="toggleMenu()">+</div>
+  <div id="floating-menu" class="menu">
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Grilla de productos -->
+  <div class="grid">
+    <div class="item" onclick="openCarousel(0)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
+    <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+    <div class="item" onclick="openCarousel(0)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
+    <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+    <div class="item" onclick="openCarousel(0)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
+    <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+    <div class="item" onclick="openCarousel(0)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
+    <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+    <div class="item" onclick="openCarousel(0)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
+    <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+    <div class="item" onclick="openCarousel(0)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
+    <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+    <div class="item" onclick="openCarousel(0)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
+    <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+    <div class="item" onclick="openCarousel(0)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
+    <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+    <div class="item" onclick="openCarousel(0)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
+    <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
+    <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1003/400/400')"></div>
+  </div>
+
+  <!-- Modal con carrusel -->
+  <div id="modal" onclick="closeCarousel()">
+    <div id="carousel" onclick="event.stopPropagation()">
+      <button class="nav prev" onclick="prevSlide(event)">‹</button>
+      <img id="carousel-img" src="" alt="Imagen del producto">
+      <button class="nav next" onclick="nextSlide(event)">›</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
