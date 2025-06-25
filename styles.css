@@ -112,9 +112,10 @@ header {
   border-bottom: 1px solid #eee;
 }
 #floating-menu {
-  position: fixed;
-  top: 80px; /* justo debajo del botón flotante */
-  right: 20px;
+  position: fixed !important;
+  top: 80px !important;
+  bottom: auto !important;
+  right: 20px !important;
   background-color: white;
   padding: 10px;
   border-radius: 8px;
@@ -126,7 +127,7 @@ header {
 }
 
 #floating-menu.show {
-  display: flex;
+  display: flex !important;
 }
 .menu a:last-child { border-bottom: none; }
 .menu a:hover { background: #f5f5f5; }
