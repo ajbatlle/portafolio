@@ -95,7 +95,7 @@ header {
 .menu {
   display: none;
   position: fixed;
-  bottom: 90px;
+  top: 90px;
   right: 20px;
   background: white;
   border: 1px solid #ccc;
