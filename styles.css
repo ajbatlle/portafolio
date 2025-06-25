@@ -168,3 +168,37 @@ header {
 .blog-card a:hover {
   text-decoration: underline;
 }
+
+.blog {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.blog-entry {
+  margin-bottom: 40px;
+}
+
+.blog-entry img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.blog-entry h2 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.blog-entry p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 40px 0;
+}
