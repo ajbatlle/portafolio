@@ -4,9 +4,11 @@
   <meta charset="UTF-8" />
   <title>Blog | Antonio Batlle</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- Encabezado -->
   <header>
     <div class="info">
       <div class="nombre">Antonio Batlle</div>
@@ -14,23 +16,32 @@
     </div>
   </header>
 
-  <main class="blog">
-    <h1>Blog</h1>
+  <!-- Botón flotante + menú -->
+  <div class="floating-button" onclick="toggleMenu()">+</div>
+  <div id="floating-menu">
+    <a href="index.html">Portafolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-    <article>
-      <h2>Primer post</h2>
+  <!-- Grilla de posts del blog -->
+  <div class="grid blog-grid">
+    <div class="blog-card">
+      <h2>El oficio invisible</h2>
       <p class="date">Junio 2025</p>
-      <p>Este es un resumen del primer post. Aquí puedes hablar de tu proceso creativo, ideas o proyectos en desarrollo.</p>
-      <a href="posts/post1.html">Leer más</a>
-    </article>
+      <p>Algunas notas sobre el trabajo editorial, la relectura y el ritmo. Un intento de mirar desde adentro cómo se construye una página legible.</p>
+      <a href="posts/el-oficio-invisible.html">Leer más</a>
+    </div>
 
-    <article>
-      <h2>Segundo post</h2>
+    <div class="blog-card">
+      <h2>Ideas que resisten</h2>
       <p class="date">Mayo 2025</p>
-      <p>Otro texto breve que luego lleva al post completo.</p>
-      <a href="posts/post2.html">Leer más</a>
-    </article>
-  </main>
+      <p>Diseñar para que dure: reflexiones sobre objetos reparados, publicaciones que sobreviven, y los materiales que no se desechan tan fácil.</p>
+      <a href="posts/ideas-que-resisten.html">Leer más</a>
+    </div>
+
+    <!-- Puedes seguir agregando más entradas así -->
+  </div>
 
   <script src="script.js"></script>
 </body>
