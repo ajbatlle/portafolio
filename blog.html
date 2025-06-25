@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Blog | Antonio Batlle</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>Blog - Antonio Batlle</title>
+  <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,29 +19,41 @@
   <!-- Botón flotante + menú -->
   <div class="floating-button" onclick="toggleMenu()">+</div>
   <div id="floating-menu">
-    <a href="index.html">Portafolio</a>
+    <a href="index.html">Inicio</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <a href="blog.html">Blog</a>
   </div>
 
-  <!-- Grilla de posts del blog -->
-  <div class="grid blog-grid">
-    <div class="blog-card">
-      <h2>El oficio invisible</h2>
-      <p class="date">Junio 2025</p>
-      <p>Algunas notas sobre el trabajo editorial, la relectura y el ritmo. Un intento de mirar desde adentro cómo se construye una página legible.</p>
-      <a href="posts/el-oficio-invisible.html">Leer más</a>
+  <!-- Sección de Blog -->
+  <main class="blog">
+    <div class="blog-entry">
+      <img src="https://picsum.photos/id/1003/800/400" alt="Entrada 1">
+      <h2>Título de la Entrada 1</h2>
+      <p>Este es un breve resumen o introducción al artículo. Se puede leer más si haces clic en algún enlace.</p>
     </div>
+    <hr>
 
-    <div class="blog-card">
-      <h2>Ideas que resisten</h2>
-      <p class="date">Mayo 2025</p>
-      <p>Diseñar para que dure: reflexiones sobre objetos reparados, publicaciones que sobreviven, y los materiales que no se desechan tan fácil.</p>
-      <a href="posts/ideas-que-resisten.html">Leer más</a>
+    <div class="blog-entry">
+      <img src="https://picsum.photos/id/1005/800/400" alt="Entrada 2">
+      <h2>Título de la Entrada 2</h2>
+      <p>Texto introductorio de la segunda entrada. Aquí puedes contar algo interesante o provocar curiosidad.</p>
     </div>
+    <hr>
 
-    <!-- Puedes seguir agregando más entradas así -->
-  </div>
+    <div class="blog-entry">
+      <img src="https://picsum.photos/id/1006/800/400" alt="Entrada 3">
+      <h2>Título de la Entrada 3</h2>
+      <p>Una pequeña descripción o anticipo del contenido. Ideal para invitar a seguir leyendo.</p>
+    </div>
+    <hr>
+
+    <div class="blog-entry">
+      <img src="https://picsum.photos/id/1010/800/400" alt="Entrada 4">
+      <h2>Título de la Entrada 4</h2>
+      <p>Una línea sobre el tema que se trata en esta entrada del blog. Puede incluir una cita o dato llamativo.</p>
+    </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
