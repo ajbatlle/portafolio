@@ -9,37 +9,34 @@
 }
 
 html, body {
-    height: 100%; /* Asegura que html y body ocupen el 100% de la altura del viewport */
+    height: 100%;
 }
 
 body {
     font-family: 'IBM Plex Sans', sans-serif;
-    background-color: #ffffff; /* Fondo blanco */
-    color: #000000; /* Texto negro */
+    background-color: #ffffff;
+    color: #000000;
     display: flex;
-    flex-direction: column; /* Esto es crucial para que los elementos hijos se apilen verticalmente */
+    flex-direction: column;
 }
 
-/* Contenedor Principal para alinear todo */
 .page-container {
-    max-width: 1200px; /* Ancho máximo total del contenido, ajustable según tu preferencia para el diseño */
-    margin: 0 auto; /* Centra el contenedor en la página */
-    padding: 0 30px; /* Padding lateral fijo para alinear header y grid */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
     display: flex;
-    flex-direction: column; /* Los elementos dentro de este contenedor también se apilan verticalmente */
-    flex-grow: 1; /* Permite que este contenedor principal se expanda y ocupe el espacio vertical restante */
-    width: 100%; /* Asegura que ocupe todo el ancho disponible hasta el max-width */
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
 }
 
-
-/* Estilos del Encabezado */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding-top: 20px; /* Espaciado superior */
-    padding-bottom: 20px; /* Espaciado inferior */
-    width: 100%; /* Ocupa todo el ancho del page-container */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
 }
 
 .header-left {
@@ -61,41 +58,38 @@ body {
 }
 
 .header-right {
-    display: flex; /* Para alinear la navegación */
-    align-items: center; /* Centrar verticalmente */
+    display: flex;
+    align-items: center;
 }
 
 .main-nav {
     display: flex;
-    gap: 15px; /* Espacio entre los enlaces de navegación */
+    gap: 15px;
 }
 
 .main-nav .nav-link {
-    color: #000000; /* Color de texto para los enlaces */
-    text-decoration: none; /* Quitar subrayado */
+    color: #000000;
+    text-decoration: none;
     font-size: 0.95em;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .main-nav .nav-link:hover {
-    color: #0000ff; /* Azul al pasar el ratón */
+    color: #0000ff;
 }
 
-
-/* Contenedor de la cuadrícula (para Portafolio) */
 .grid-container {
-    flex-grow: 1; /* ¡IMPORTANTE! Esto hace que la cuadrícula ocupe todo el espacio vertical disponible */
+    flex-grow: 1;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr); /* 5 filas */
-    gap: 15px; /* Espacio entre las celdas de la cuadrícula */
-    padding-top: 30px; /* Espaciado superior de la cuadrícula */
-    padding-bottom: 30px; /* Espaciado inferior de la cuadrícula */
-    width: 100%; /* Ocupa todo el ancho del page-container */
+    grid-template-rows: repeat(5, 1fr);
+    gap: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
 }
 
-/* Estilo de cada celda de la cuadrícula */
 .grid-item {
     background-color: #ffffff;
     border: 1px solid #cccccc;
@@ -103,21 +97,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Asegura que la imagen no se salga del borde */
-    position: relative; /* Para el título o efectos */
-    cursor: pointer; /* Indica que es clicable */
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
 }
 
 .grid-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta la imagen para que cubra completamente la celda sin distorsionarse */
+    object-fit: cover;
     display: block;
-    transition: transform 0.3s ease; /* Transición suave para efecto hover */
+    transition: transform 0.3s ease;
 }
 
 .grid-item:hover img {
-    transform: scale(1.05); /* Ligerísimo zoom al pasar el ratón */
+    transform: scale(1.05);
 }
 
 .project-title {
@@ -125,40 +119,38 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    background-color: rgba(0, 0, 0, 0.7);
     color: #fff;
     padding: 10px;
     font-size: 0.9em;
     text-align: center;
-    opacity: 0; /* Oculto por defecto */
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .grid-item:hover .project-title {
-    opacity: 1; /* Muestra el título al pasar el ratón */
+    opacity: 1;
 }
 
-
-/* Estilos del Lightbox/Carrusel */
 .lightbox {
-    display: none; /* Oculto por defecto, JavaScript lo mostrará */
-    position: fixed; /* Fijo en la pantalla */
-    z-index: 1000; /* Por encima de todo lo demás */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /* Para scroll si la imagen es muy grande */
-    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro semi-transparente */
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Para centrar la imagen y la leyenda */
+    flex-direction: column;
 }
 
 .lightbox-content {
     position: relative;
-    max-width: 90%; /* Ancho máximo del contenedor de la imagen */
-    max-height: 90%; /* Alto máximo del contenedor de la imagen */
+    max-width: 90%;
+    max-height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,9 +158,9 @@ body {
 
 .lightbox-content img {
     max-width: 100%;
-    max-height: 80vh; /* La imagen no ocupará más del 80% de la altura del viewport */
+    max-height: 80vh;
     display: block;
-    object-fit: contain; /* Ajusta la imagen dentro de su contenedor sin recortar */
+    object-fit: contain;
 }
 
 .lightbox-close {
@@ -179,7 +171,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 1001; /* Asegura que el botón de cerrar esté por encima de todo */
+    z-index: 1001;
 }
 
 .lightbox-nav {
@@ -192,7 +184,7 @@ body {
     padding: 10px 15px;
     font-size: 2em;
     cursor: pointer;
-    user-select: none; /* Evita que el texto se seleccione */
+    user-select: none;
     z-index: 100;
 }
 
@@ -209,63 +201,59 @@ body {
     font-size: 1.1em;
     text-align: center;
     margin-top: 15px;
-    max-width: 80%; /* Asegura que la leyenda no sea demasiado ancha */
+    max-width: 80%;
 }
 
-
-/* Estilos del Footer */
 .footer {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Alinea los elementos al final (abajo), similar al header que los alinea al inicio */
-    padding: 20px 0; /* Espaciado interno, los laterales los maneja .page-container */
+    align-items: flex-end;
+    padding: 20px 0;
     width: 100%;
-    margin-top: auto; /* Empuja el footer hacia abajo si el contenido no llena la pantalla */
-    border-top: 1px solid #eeeeee; /* Opcional: una línea sutil para separarlo del contenido */
-    color: #555555; /* Texto del footer más suave */
+    margin-top: auto;
+    border-top: 1px solid #eeeeee;
+    color: #555555;
 }
 
 .footer-left {
-    display: flex; /* Para apilar el nombre y el copyright */
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
 .footer-left .brand-name {
-    font-size: 1.1em; /* Un poco más pequeño que el del header */
+    font-size: 1.1em;
     font-weight: 700;
     margin-bottom: 2px;
 }
 
-.footer-left .brand-tagline { /* Reutilizo brand-tagline para el copyright */
-    font-size: 0.75em; /* Más pequeño que el del header */
+.footer-left .brand-tagline {
+    font-size: 0.75em;
     font-weight: 400;
-    color: #777777; /* Un gris aún más suave */
+    color: #777777;
 }
 
 .social-links {
-    list-style: none; /* Quita los puntos de la lista */
+    list-style: none;
     display: flex;
-    gap: 15px; /* Espacio entre los elementos de la lista */
+    gap: 15px;
 }
 
 .social-links li a {
-    color: #0000ff; /* Color azul para los enlaces, como el '+' del header */
-    text-decoration: none; /* Quita el subrayado */
+    color: #0000ff;
+    text-decoration: none;
     font-size: 0.9em;
-    font-weight: 600; /* Un poco más negrita */
+    font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .social-links li a:hover {
-    color: #0000cc; /* Un azul ligeramente más oscuro al pasar el ratón */
+    color: #0000cc;
 }
 
-/* --- Estilos para las nuevas páginas (Sobre mí, Blog, Contacto) --- */
-
 .content-section {
-    flex-grow: 1; /* Permite que el contenido principal se expanda */
-    padding: 40px 0; /* Espaciado superior e inferior para el contenido */
+    flex-grow: 1;
+    padding: 40px 0;
     width: 100%;
 }
 
@@ -274,13 +262,12 @@ body {
     font-weight: 700;
     text-align: center;
     margin-bottom: 40px;
-    color: #0000ff; /* Un toque de color para los títulos de página */
+    color: #0000ff;
 }
 
-/* Estilos para "Sobre mí" */
 .about-content {
     display: flex;
-    flex-direction: column; /* Por defecto apilado, para móviles */
+    flex-direction: column;
     align-items: center;
     gap: 30px;
     margin-bottom: 50px;
@@ -289,8 +276,8 @@ body {
 .profile-image {
     max-width: 300px;
     height: auto;
-    border-radius: 8px; /* Bordes ligeramente redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .about-content .text-content {
@@ -342,11 +329,9 @@ body {
     border: 1px solid #e0e0e0;
 }
 
-
-/* Estilos para el Blog Grid */
 .blog-grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     padding-bottom: 40px;
 }
@@ -358,21 +343,21 @@ body {
     border: 1px solid #eeeeee;
     border-radius: 8px;
     overflow: hidden;
-    text-decoration: none; /* Quita el subrayado del enlace de la tarjeta */
-    color: inherit; /* Hereda el color del texto */
+    text-decoration: none;
+    color: inherit;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog-card:hover {
-    transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+    transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .blog-card img {
     width: 100%;
-    height: 200px; /* Altura fija para las imágenes del blog */
-    object-fit: cover; /* Asegura que la imagen cubra el área */
+    height: 200px;
+    object-fit: cover;
     display: block;
 }
 
@@ -398,8 +383,6 @@ body {
     color: #555555;
 }
 
-
-/* Estilos para Contacto */
 .contact-content {
     max-width: 600px;
     margin: 0 auto;
@@ -429,7 +412,7 @@ body {
     text-decoration: underline;
 }
 
-.social-links-contact { /* Para las redes sociales dentro del contenido de contacto */
+.social-links-contact {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -479,11 +462,11 @@ body {
     border-radius: 5px;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 0.95em;
-    width: 100%; /* Asegura que ocupen todo el ancho disponible */
+    width: 100%;
 }
 
 .form-group textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
+    resize: vertical;
 }
 
 .submit-button {
@@ -496,7 +479,7 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    align-self: flex-start; /* Alinea el botón a la izquierda */
+    align-self: flex-start;
 }
 
 .submit-button:hover {
@@ -509,14 +492,12 @@ body {
     margin-top: 15px;
 }
 
-
-/* Media Queries para responsividad */
 @media (max-width: 768px) {
     .page-container {
         padding: 0 20px;
     }
     .header-right {
-        flex-direction: column; /* Apila nav en pantallas más pequeñas */
+        flex-direction: column;
         align-items: flex-end;
     }
     .main-nav {
@@ -524,7 +505,7 @@ body {
         align-items: flex-end;
         gap: 8px;
     }
-    .grid-container { /* Para Portafolio */
+    .grid-container {
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
         padding-top: 20px;
@@ -540,53 +521,49 @@ body {
         padding: 8px 12px;
     }
     .footer {
-        flex-direction: column; /* Apila los elementos en pantallas pequeñas */
-        align-items: center; /* Centra los elementos apilados */
+        flex-direction: column;
+        align-items: center;
         text-align: center;
         padding: 15px 0;
     }
     .footer-left {
-        align-items: center; /* Centra el texto del footer en modo columna */
-        margin-bottom: 10px; /* Espacio entre la información y los enlaces sociales */
+        align-items: center;
+        margin-bottom: 10px;
     }
     .social-links {
         gap: 10px;
     }
 
-    /* Media Queries para las nuevas páginas */
     .page-title {
         font-size: 2em;
         margin-bottom: 30px;
     }
 
-    /* Sobre mí */
     .about-content {
-        flex-direction: column; /* Asegura que se apilen en móviles */
+        flex-direction: column;
         text-align: center;
     }
     .about-content .text-content {
-        text-align: left; /* Mantener el texto justificado o alineado a la izquierda */
-        padding: 0 10px; /* Añadir un poco de padding lateral en móviles */
+        text-align: left;
+        padding: 0 10px;
     }
     .skills-section {
         padding: 0 10px;
     }
 
-    /* Blog */
     .blog-grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta el tamaño mínimo de la tarjeta */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
     }
     .blog-card img {
-        height: 180px; /* Ajusta la altura de la imagen del blog */
+        height: 180px;
     }
 
-    /* Contacto */
     .contact-form {
         padding: 15px;
     }
     .submit-button {
-        align-self: stretch; /* El botón ocupa todo el ancho en móviles */
+        align-self: stretch;
     }
 }
 
@@ -611,7 +588,7 @@ body {
         font-size: 0.85em;
     }
 
-    .grid-container { /* Para Portafolio */
+    .grid-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
         padding-top: 15px;
@@ -630,14 +607,12 @@ body {
         font-size: 0.8em;
     }
 
-    /* Media Queries para las nuevas páginas */
     .page-title {
         font-size: 1.8em;
         margin-bottom: 25px;
     }
-    /* Blog */
     .blog-grid-container {
-        grid-template-columns: 1fr; /* Una sola columna en pantallas muy pequeñas */
+        grid-template-columns: 1fr;
     }
     .blog-card img {
         height: 150px;
