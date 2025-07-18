@@ -1,69 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Blog - Antonio Batlle</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonio Batlle - Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header-left">
+                <span class="brand-name">Antonio Batlle</span>
+                <span class="brand-tagline">Diseñador / Escritor</span>
+            </div>
+            <div class="header-right">
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">Portafolio</a>
+                    <a href="about.html" class="nav-link">Sobre mí</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="contact.html" class="nav-link">Contacto</a>
+                </nav>
+            </div>
+        </header>
 
-  <header>
-    <div class="info">
-      <div class="nombre">Antonio Batlle</div>
-      <div class="rol">Diseñador / Escritor</div>
+        <main class="content-section">
+            <h1 class="page-title">Mi Blog</h1>
+            <div class="blog-grid-container">
+                <a href="blog/post-1.html" class="blog-card">
+                    <img src="images/blog/blog-post-1.jpg" alt="Imagen de la entrada de blog 1">
+                    <div class="card-content">
+                        <h3>Las Tendencias de Diseño para 2025</h3>
+                        <p class="post-meta">23 de Julio, 2025 | Diseño Gráfico</p>
+                        <p>Exploramos las direcciones clave que el diseño gráfico tomará este año, desde el minimalismo hasta el maximalismo audaz.</p>
+                    </div>
+                </a>
+
+                <a href="blog/post-2.html" class="blog-card">
+                    <img src="images/blog/blog-post-2.jpg" alt="Imagen de la entrada de blog 2">
+                    <div class="card-content">
+                        <h3>Mi Proceso Creativo: Del Concepto a la Realidad</h3>
+                        <p class="post-meta">15 de Julio, 2025 | Proceso Creativo</p>
+                        <p>Un vistazo detrás de cámaras a cómo abordo cada proyecto, desde la ideación inicial hasta la entrega final.</p>
+                    </div>
+                </a>
+
+                <a href="blog/post-3.html" class="blog-card">
+                    <img src="images/blog/blog-post-3.jpg" alt="Imagen de la entrada de blog 3">
+                    <div class="card-content">
+                        <h3>Herramientas Esenciales para Ilustradores Digitales</h3>
+                        <p class="post-meta">01 de Julio, 2025 | Ilustración</p>
+                        <p>Una guía de mis herramientas favoritas y cómo las utilizo para dar vida a mis ilustraciones.</p>
+                    </div>
+                </a>
+
+                <a href="blog/post-4.html" class="blog-card">
+                    <img src="images/blog/blog-post-4.jpg" alt="Imagen de la entrada de blog 4">
+                    <div class="card-content">
+                        <h3>Cómo usar la psicología del color en tu branding</h3>
+                        <p class="post-meta">28 de Junio, 2025 | Branding</p>
+                        <p>Un análisis de cómo los colores impactan la percepción de la marca y cómo usarlos estratégicamente.</p>
+                    </div>
+                </a>
+                
+                </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-left">
+                <span class="brand-name">Antonio Batlle</span>
+                <span class="brand-tagline">Derechos Reservados &copy; 2025</span>
+            </div>
+            <div class="footer-right">
+                <ul class="social-links">
+                    <li><a href="https://linkedin.com/in/tu_perfil" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://instagram.com/tu_perfil" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://behance.net/tu_perfil" target="_blank" rel="noopener noreferrer">Behance</a></li>
+                    <li><a href="tu_cv.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
+                </ul>
+            </div>
+        </footer>
     </div>
-  </header>
-
-<main class="blog-grid">
-  <!-- Entrada 1 -->
-  <div class="blog-card">
-    <img src="https://picsum.photos/id/1010/800/400" alt="Imagen entrada">
-    <div class="card-content">
-      <h2>
-        Cómo iniciar un negocio exitoso<br>con tu pareja
-        <span class="arrow">↗</span>
-      </h2>
-      <p>Iniciar un proyecto con tu pareja puede ser emocionante, pero también requiere acuerdos, comunicación y mucha paciencia...</p>
-      <div class="tags">
-        <span class="tag">Diseño</span>
-        <span class="tag">Relaciones</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Entrada 2 -->
-  <div class="blog-card">
-    <img src="https://picsum.photos/id/1015/800/400" alt="Imagen entrada">
-    <div class="card-content">
-      <h2>
-        10 consejos para diseñar<br>una memoria institucional
-        <span class="arrow">↗</span>
-      </h2>
-      <p>El diseño editorial también puede comunicar estrategia. Aquí van claves para estructurar una memoria clara, moderna y profesional...</p>
-      <div class="tags">
-        <span class="tag">Diseño</span>
-        <span class="tag">Editorial</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Entrada 3 -->
-  <div class="blog-card">
-    <img src="https://picsum.photos/id/1021/800/400" alt="Imagen entrada">
-    <div class="card-content">
-      <h2>
-        Providencia en 30 poemas:<br>la ciudad y la infancia
-        <span class="arrow">↗</span>
-      </h2>
-      <p>Una serie de poemas sobre calles, padres, bibliotecas y silencios. Un ejercicio de memoria afectiva desde lo cotidiano...</p>
-      <div class="tags">
-        <span class="tag">Poesía</span>
-        <span class="tag">Ciudad</span>
-      </div>
-    </div>
-  </div>
-</main>
-
+    <script src="script.js"></script>
 </body>
 </html>
