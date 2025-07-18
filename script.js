@@ -1,16 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // =====================================================================
-    // DETECCIÓN DE LA PÁGINA ACTUAL
+    // DETECCIÓN DE LA PÁGINA ACTUAL (VERSIÓN FINAL Y MÁS ROBUSTA)
     // =====================================================================
-    const currentPage = window.location.pathname.split('/').pop();
-    // La variable 'currentPath' que usamos en la última versión era más robusta.
-    // Usaremos una combinación para asegurarnos.
+    // Obtenemos la ruta completa de la URL, la convertimos a minúsculas
     const currentPath = window.location.pathname.toLowerCase();
-
+    // Extraemos solo el nombre del archivo (ej. "index.html", "blog.html") o vacío si es la raíz del repositorio
+    const currentPageFileName = currentPath.split('/').pop();
 
     // =====================================================================
-    // DEFINICIÓN DE TUS PROYECTOS (Solo para Portafolio - index.html)
+    // DEFINICIÓN DE TUS PROYECTOS (Para Portafolio - index.html)
     // =====================================================================
     const projects = {
         'project1': { title: 'Branding para Café "El Grano"', thumbnail: 'images/thumbnails/project1_thumb.jpg', images: ['images/projects/project1/img1.jpg', 'images/projects/project1/img2.jpg', 'images/projects/project1/img3.jpg'] },
@@ -41,20 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // =====================================================================
-    // DEFINICIÓN DE LAS ENTRADAS DEL BLOG (Solo para Blog - blog.html)
+    // DEFINICIÓN DE LAS ENTRADAS DEL BLOG (Para Blog - blog.html)
     // =====================================================================
     const blogPosts = [
         {
             title: 'Las Tendencias de Diseño para 2025',
-            thumbnail: 'images/blog/blog-post-1.jpg', // Asegúrate de que esta imagen exista
+            // Usamos un placeholder temporal para que veas la estructura del blog
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+1',
             date: '23 de Julio, 2025',
             category: 'Diseño Gráfico',
             summary: 'Exploramos las direcciones clave que el diseño gráfico tomará este año, desde el minimalismo hasta el maximalismo audaz.',
-            slug: 'blog/tendencias-diseno-2025.html' // Ruta al archivo de la entrada completa del blog
+            slug: 'blog/tendencias-diseno-2025.html'
         },
         {
             title: 'Mi Proceso Creativo: Del Concepto a la Realidad',
-            thumbnail: 'images/blog/blog-post-2.jpg',
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+2',
             date: '15 de Julio, 2025',
             category: 'Proceso Creativo',
             summary: 'Un vistazo detrás de cámaras a cómo abordo cada proyecto, desde la ideación inicial hasta la entrega final.',
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'Herramientas Esenciales para Ilustradores Digitales',
-            thumbnail: 'images/blog/blog-post-3.jpg',
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+3',
             date: '01 de Julio, 2025',
             category: 'Ilustración',
             summary: 'Una guía de mis herramientas favoritas y cómo las utilizo para dar vida a mis ilustraciones.',
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'Cómo usar la psicología del color en tu branding',
-            thumbnail: 'images/blog/blog-post-4.jpg',
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+4',
             date: '28 de Junio, 2025',
             category: 'Branding',
             summary: 'Un análisis de cómo los colores impactan la percepción de la marca y cómo usarlos estratégicamente.',
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'Case Study: Rediseño de Logo para Restaurante',
-            thumbnail: 'images/blog/blog-post-5.jpg',
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+5',
             date: '20 de Junio, 2025',
             category: 'Diseño de Marca',
             summary: 'Un desglose del proceso de rediseño de un logo, desde la investigación hasta la implementación.',
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'La Importancia del Storytelling en el Diseño',
-            thumbnail: 'images/blog/blog-post-6.jpg',
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+6',
             date: '10 de Junio, 2025',
             category: 'Estrategia',
             summary: 'Por qué contar historias es fundamental para conectar con tu audiencia a través de tus diseños.',
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'Diseño Responsivo: Más allá de los breakpoints',
-            thumbnail: 'images/blog/blog-post-7.jpg',
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+7',
             date: '05 de Junio, 2025',
             category: 'Diseño Web',
             summary: 'Exploramos técnicas avanzadas para crear sitios web que se adapten fluidamente a cualquier dispositivo.',
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'El Futuro de la Realidad Aumentada en el Diseño',
-            thumbnail: 'images/blog/blog-post-8.jpg',
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+8',
             date: '28 de Mayo, 2025',
             category: 'Tecnología',
             summary: 'Cómo la RA está transformando la forma en que interactuamos con el diseño digital y físico.',
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'Guía Completa de Tipografía para Diseñadores',
-            thumbnail: 'images/blog/blog-post-9.jpg',
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+9',
             date: '20 de Mayo, 2025',
             category: 'Tipografía',
             summary: 'Desde los fundamentos hasta las combinaciones avanzadas, domina el arte de la tipografía.',
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: 'Cómo construir un Portafolio que Impresione',
-            thumbnail: 'images/blog/blog-post-10.jpg',
+            thumbnail: 'https://via.placeholder.com/400x200?text=Blog+Post+10',
             date: '10 de Mayo, 2025',
             category: 'Carrera',
             summary: 'Consejos prácticos para crear un portafolio que destaque y atraiga a tus clientes ideales.',
@@ -194,134 +194,111 @@ document.addEventListener('DOMContentLoaded', () => {
     // LÓGICA ESPECÍFICA DE LA PÁGINA
     // =====================================================================
 
-    if (currentPath.includes('index.html') || currentPath.endsWith('/portafolio/') || currentPath.endsWith('/portafolio')) { // Para la página de Portafolio
+    // Detección para index.html (Portafolio)
+    // Cubre: ajbatlle.github.io/portafolio/  (ruta termina con /portafolio/ o /portafolio)
+    // Cubre: ajbatlle.github.io/portafolio/index.html
+    // Cubre: ajbatlle.github.io/portafolio (sin slash final)
+    if (currentPageFileName === 'index.html' || currentPath.endsWith('/portafolio/') || currentPath.endsWith('/portafolio')) {
+        console.log("Activando lógica del Portafolio..."); // Debugging
         const portfolioGrid = document.getElementById('portfolio-grid');
-        function generatePortfolioGridItems() {
-            for (const projectId in projects) {
-                const project = projects[projectId];
-                const gridItem = document.createElement('div');
-                gridItem.classList.add('grid-item', 'project-card');
-                gridItem.dataset.projectId = projectId;
-                const img = document.createElement('img');
-                img.src = project.thumbnail;
-                img.alt = `Miniatura ${project.title}`;
-                gridItem.appendChild(img);
-                const projectTitle = document.createElement('div');
-                projectTitle.classList.add('project-title');
-                projectTitle.textContent = project.title;
-                gridItem.appendChild(projectTitle);
-                portfolioGrid.appendChild(gridItem);
+        if (portfolioGrid) { // Asegurarse de que el elemento exista
+            function generatePortfolioGridItems() {
+                for (const projectId in projects) {
+                    const project = projects[projectId];
+                    const gridItem = document.createElement('div');
+                    gridItem.classList.add('grid-item', 'project-card');
+                    gridItem.dataset.projectId = projectId;
+                    const img = document.createElement('img');
+                    img.src = project.thumbnail;
+                    img.alt = `Miniatura ${project.title}`;
+                    gridItem.appendChild(img);
+                    const projectTitle = document.createElement('div');
+                    projectTitle.classList.add('project-title');
+                    projectTitle.textContent = project.title;
+                    gridItem.appendChild(projectTitle);
+                    portfolioGrid.appendChild(gridItem);
+                }
+                assignProjectCardListeners();
             }
-            assignProjectCardListeners();
-        }
 
-        function assignProjectCardListeners() {
-            const projectCards = document.querySelectorAll('.project-card');
-            projectCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    const projectId = card.dataset.projectId;
-                    if (projectId) {
-                        openLightbox(projectId);
-                    }
+            function assignProjectCardListeners() {
+                const projectCards = document.querySelectorAll('.project-card');
+                projectCards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        const projectId = card.dataset.projectId;
+                        if (projectId) {
+                            openLightbox(projectId);
+                        }
+                    });
                 });
-            });
+            }
+            generatePortfolioGridItems(); // Llama a la función para generar el portafolio
+        } else {
+            console.warn("Elemento #portfolio-grid no encontrado. La lógica del portafolio no se ejecutará.");
         }
-        generatePortfolioGridItems(); // Llama a la función para generar el portafolio
     }
 
-    else if (currentPath.includes('blog.html')) { // Para la página de Blog
+    // Condición para la página de Blog (blog.html)
+    else if (currentPageFileName === 'blog.html') {
+        console.log("Activando lógica del Blog..."); // Debugging
         const blogPostsContainer = document.getElementById('blog-posts-container');
         const loadMoreButton = document.getElementById('load-more-button');
 
-        function displayBlogPosts() {
-            const initialCount = blogPostsContainer.children.length; // Contar los ya existentes
-            const remainingPosts = blogPosts.slice(currentPostsDisplayed);
-            const postsToAdd = remainingPosts.slice(0, postsToLoad);
+        if (blogPostsContainer && loadMoreButton) { // Asegurarse de que los elementos existan
+            function displayBlogPosts() {
+                const remainingPosts = blogPosts.slice(currentPostsDisplayed);
+                const postsToAdd = remainingPosts.slice(0, postsToLoad);
 
-            postsToAdd.forEach(post => {
-                const blogCard = document.createElement('a');
-                blogCard.href = post.slug; // Enlace a la entrada completa
-                blogCard.classList.add('blog-card');
+                postsToAdd.forEach(post => {
+                    const blogCard = document.createElement('a');
+                    blogCard.href = post.slug;
+                    blogCard.classList.add('blog-card');
 
-                const img = document.createElement('img');
-                img.src = post.thumbnail;
-                img.alt = `Imagen de la entrada de blog: ${post.title}`;
-                blogCard.appendChild(img);
+                    const img = document.createElement('img');
+                    img.src = post.thumbnail; // Usará la URL de placeholder por ahora
+                    img.alt = `Imagen de la entrada de blog: ${post.title}`;
+                    blogCard.appendChild(img);
 
-                const cardContent = document.createElement('div');
-                cardContent.classList.add('card-content');
+                    const cardContent = document.createElement('div');
+                    cardContent.classList.add('card-content');
 
-                const title = document.createElement('h3');
-                title.textContent = post.title;
-                cardContent.appendChild(title);
+                    const title = document.createElement('h3');
+                    title.textContent = post.title;
+                    cardContent.appendChild(title);
 
-                const meta = document.createElement('p');
-                meta.classList.add('post-meta');
-                meta.textContent = `${post.date} | ${post.category}`;
-                cardContent.appendChild(meta);
+                    const meta = document.createElement('p');
+                    meta.classList.add('post-meta');
+                    meta.textContent = `${post.date} | ${post.category}`;
+                    cardContent.appendChild(meta);
 
-                const summary = document.createElement('p');
-                summary.textContent = post.summary;
-                cardContent.appendChild(summary);
+                    const summary = document.createElement('p');
+                    summary.textContent = post.summary;
+                    cardContent.appendChild(summary);
 
-                blogCard.appendChild(cardContent);
-                blogPostsContainer.appendChild(blogCard);
-            });
+                    blogCard.appendChild(cardContent);
+                    blogPostsContainer.appendChild(blogCard);
+                });
 
-            currentPostsDisplayed += postsToAdd.length;
+                currentPostsDisplayed += postsToAdd.length;
 
-            if (currentPostsDisplayed >= blogPosts.length) {
-                loadMoreButton.style.display = 'none';
-            } else {
-                loadMoreButton.style.display = 'block';
+                if (currentPostsDisplayed >= blogPosts.length) {
+                    loadMoreButton.style.display = 'none';
+                } else {
+                    loadMoreButton.style.display = 'block';
+                }
             }
-        }
 
-        function initializeBlog() {
-            blogPostsContainer.innerHTML = '';
-            currentPostsDisplayed = 0;
-            const initialPosts = blogPosts.slice(0, postsPerPage);
-
-            initialPosts.forEach(post => {
-                const blogCard = document.createElement('a');
-                blogCard.href = post.slug;
-                blogCard.classList.add('blog-card');
-
-                const img = document.createElement('img');
-                img.src = post.thumbnail;
-                img.alt = `Imagen de la entrada de blog: ${post.title}`;
-                blogCard.appendChild(img);
-
-                const cardContent = document.createElement('div');
-                cardContent.classList.add('card-content');
-
-                const title = document.createElement('h3');
-                title.textContent = post.title;
-                cardContent.appendChild(title);
-
-                const meta = document.createElement('p');
-                meta.classList.add('post-meta');
-                meta.textContent = `${post.date} | ${post.category}`;
-                cardContent.appendChild(meta);
-
-                const summary = document.createElement('p');
-                summary.textContent = post.summary;
-                cardContent.appendChild(summary);
-
-                blogCard.appendChild(cardContent);
-                blogPostsContainer.appendChild(blogCard);
-            });
-            currentPostsDisplayed += initialPosts.length;
-
-            if (currentPostsDisplayed >= blogPosts.length) {
-                loadMoreButton.style.display = 'none';
-            } else {
-                loadMoreButton.style.display = 'block';
+            function initializeBlog() {
+                blogPostsContainer.innerHTML = '';
+                currentPostsDisplayed = 0;
+                displayBlogPosts(); // Llama a displayBlogPosts para mostrar las primeras 'postsPerPage' entradas
             }
+
+            loadMoreButton.addEventListener('click', displayBlogPosts);
+
+            initializeBlog();
+        } else {
+            console.warn("Elementos de blog (contenedor o botón) no encontrados. La lógica del blog no se ejecutará.");
         }
-
-        loadMoreButton.addEventListener('click', displayBlogPosts);
-
-        initializeBlog();
     }
 });
