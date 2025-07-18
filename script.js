@@ -1,13 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // =====================================================================
-    // DETECCIÓN DE LA PÁGINA ACTUAL
+    // DETECCIÓN DE LA PÁGINA ACTUAL (MODIFICADO)
     // =====================================================================
-    const currentPage = window.location.pathname.split('/').pop();
+    // Usamos .includes() para ser más flexibles con la ruta completa de GitHub Pages
+    // Convertimos a minúsculas para evitar problemas de mayúsculas/minúsculas
+    const currentPath = window.location.pathname.toLowerCase();
 
     // =====================================================================
     // DEFINICIÓN DE TUS PROYECTOS (Solo para Portafolio - index.html)
-    // =====================================================================
+    // ... (El objeto projects se mantiene igual) ...
     const projects = {
         'project1': { title: 'Branding para Café "El Grano"', thumbnail: 'images/thumbnails/project1_thumb.jpg', images: ['images/projects/project1/img1.jpg', 'images/projects/project1/img2.jpg', 'images/projects/project1/img3.jpg'] },
         'project2': { title: 'Ilustración Digital "Mundos Flotantes"', thumbnail: 'images/thumbnails/project2_thumb.jpg', images: ['images/projects/project2/img1.jpg', 'images/projects/project2/img2.jpg'] },
@@ -191,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // LÓGICA ESPECÍFICA DE LA PÁGINA
     // =====================================================================
 
-    if (currentPage === 'index.html' || currentPage === '') { // Para la página de Portafolio
+    if (currentPath.includes('index.html') || currentPath.endsWith('/') || currentPath.endsWith('/' + window.location.host.toLowerCase().split('.').shift())) { // Para la página de Portafolio
         const portfolioGrid = document.getElementById('portfolio-grid');
         function generatePortfolioGridItems() {
             for (const projectId in projects) {
@@ -226,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         generatePortfolioGridItems(); // Llama a la función para generar el portafolio
     }
 
-    else if (currentPage === 'blog.html') { // Para la página de Blog
+    else if (currentPath.includes('blog.html')) { // Para la página de Blog
         const blogPostsContainer = document.getElementById('blog-posts-container');
         const loadMoreButton = document.getElementById('load-more-button');
 
@@ -326,3 +328,30 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeBlog();
     }
 });
+He revisado tu `script.js` completo, y te confirmo que **la lógica para la página del blog (`else if (currentPath.includes('blog.html'))`) está bien escrita y parece correcta.**
+
+La forma en que se crean los `blogCard`s, se añaden las imágenes, los títulos y resúmenes, y cómo se insertan en el `blogPostsContainer` es lo que se espera. También la lógica del botón "Cargar más" (mostrar 6 iniciales, luego 3) es funcional.
+
+Dado que el HTML de `blog.html` también se ve bien, y la lógica JS parece correcta, el problema de que no se vean las entradas del blog casi con seguridad se debe a:
+
+1.  **Las imágenes de las miniaturas del blog no se están cargando.** Esto es lo más frecuente. Si el navegador no encuentra `images/blog/blog-post-1.jpg`, no mostrará esa tarjeta (o la mostrará incompleta), y si hay un error JavaScript durante la carga de esa imagen, podría afectar al resto.
+2.  **La condición `currentPath.includes('blog.html')` no se está cumpliendo en tu entorno de GitHub Pages.** Aunque la hemos hecho más robusta, a veces las URLs pueden ser engañosas.
+
+**Para poder darte una solución definitiva, necesito que me compartas:**
+
+1.  **La URL exacta de tu página de blog en GitHub Pages.**
+    * (Ejemplo: `https://tu_usuario.github.io/tu_repositorio/blog.html`)
+2.  **La URL exacta de tu repositorio de GitHub.**
+    * (Ejemplo: `https://github.com/tu_usuario/tu_repositorio`)
+
+**Mientras tanto, por favor, haz esto y dime qué ves en el navegador:**
+
+1.  **Abre tu página de blog en GitHub Pages.**
+2.  Abre las **Herramientas de Desarrollador** de tu navegador (clic derecho -> "Inspeccionar").
+3.  Ve a la pestaña **"Console" (Consola)**.
+    * ¿Hay **errores en rojo**? Si es así, ¿qué dicen? (Busca especialmente errores 404 o "Failed to load resource").
+4.  Ve a la pestaña **"Network" (Red)**.
+    * Recarga la página (`Ctrl + F5` o `Cmd + Shift + R`).
+    * En la lista de recursos cargados, busca tus imágenes del blog (ej. `blog-post-1.jpg`). ¿Se cargan con un estado `200 OK` o con un `404 Not Found`?
+
+Con la URL de tu sitio y la información de la consola, podré identificar el punto exacto de la falla.
