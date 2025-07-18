@@ -1,66 +1,61 @@
-
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Antonio Batlle</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonio Batlle - Portafolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header-left">
+                <span class="brand-name">Antonio Batlle</span>
+                <span class="brand-tagline">Diseñador / Escritor</span>
+            </div>
+            <div class="header-right">
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">Portafolio</a>
+                    <a href="about.html" class="nav-link">Sobre mí</a>
+                    <a href="blog.html" class="nav-link">Blog</a> <a href="contact.html" class="nav-link">Contacto</a>
+                </nav>
+                </div>
+        </header>
 
-  <!-- Encabezado -->
-  <header>
-    <div class="info">
-      <div class="nombre">Antonio Batlle</div>
-      <div class="rol">Diseñador / Escritor</div>
+        <main id="portfolio-grid" class="grid-container">
+            </main>
+
+        <footer class="footer">
+            <div class="footer-left">
+                <span class="brand-name">Antonio Batlle</span>
+                <span class="brand-tagline">Derechos Reservados &copy; 2025</span>
+            </div>
+            <div class="footer-right">
+                <ul class="social-links">
+                    <li><a href="https://linkedin.com/in/tu_perfil" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><a href="https://instagram.com/tu_perfil" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://behance.net/tu_perfil" target="_blank" rel="noopener noreferrer">Behance</a></li>
+                    <li><a href="tu_cv.pdf" target="_blank" rel="noopener noreferrer">CV</a></li> </ul>
+            </div>
+        </footer>
     </div>
-  </header>
 
-  <!-- Botón flotante + menú -->
-  <div class="floating-button" onclick="toggleMenu()">+</div>
-<div id="floating-menu">
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
- <a href="blog.html">Blog</a>
-</div>
-
-  <!-- Grilla de productos -->
-<div class="grid">
-  <!-- Generado con índices del 0 al 23 -->
-  <div class="item" onclick="openCarousel(0)" style="background-image:url('https://raw.githubusercontent.com/ajbatlle/portafolio/refs/heads/main/img/foto1.jpg')"></div>
-  <div class="item" onclick="openCarousel(1)" style="background-image:url('https://picsum.photos/id/1011/400/400')"></div>
-  <div class="item" onclick="openCarousel(2)" style="background-image:url('https://picsum.photos/id/1012/400/400')"></div>
-  <div class="item" onclick="openCarousel(3)" style="background-image:url('https://picsum.photos/id/1013/400/400')"></div>
-  <div class="item" onclick="openCarousel(4)" style="background-image:url('https://picsum.photos/id/1014/400/400')"></div>
-  <div class="item" onclick="openCarousel(5)" style="background-image:url('https://picsum.photos/id/1015/400/400')"></div>
-  <div class="item" onclick="openCarousel(6)" style="background-image:url('https://picsum.photos/id/1016/400/400')"></div>
-  <div class="item" onclick="openCarousel(7)" style="background-image:url('https://picsum.photos/id/1033/400/400')"></div>
-  <div class="item" onclick="openCarousel(8)" style="background-image:url('https://picsum.photos/id/1032/400/400')"></div>
-  <div class="item" onclick="openCarousel(9)" style="background-image:url('https://picsum.photos/id/1031/400/400')"></div>
-  <div class="item" onclick="openCarousel(10)" style="background-image:url('https://picsum.photos/id/1020/400/400')"></div>
-  <div class="item" onclick="openCarousel(11)" style="background-image:url('https://picsum.photos/id/1021/400/400')"></div>
-  <div class="item" onclick="openCarousel(12)" style="background-image:url('https://picsum.photos/id/1022/400/400')"></div>
-  <div class="item" onclick="openCarousel(13)" style="background-image:url('https://picsum.photos/id/1023/400/400')"></div>
-  <div class="item" onclick="openCarousel(14)" style="background-image:url('https://picsum.photos/id/1024/400/400')"></div>
-  <div class="item" onclick="openCarousel(15)" style="background-image:url('https://picsum.photos/id/1025/400/400')"></div>
-  <div class="item" onclick="openCarousel(16)" style="background-image:url('https://picsum.photos/id/1026/400/400')"></div>
-  <div class="item" onclick="openCarousel(17)" style="background-image:url('https://picsum.photos/id/1027/400/400')"></div>
-  <div class="item" onclick="openCarousel(18)" style="background-image:url('https://picsum.photos/id/1028/400/400')"></div>
-  <div class="item" onclick="openCarousel(19)" style="background-image:url('https://picsum.photos/id/1029/400/400')"></div>
-  <div class="item" onclick="openCarousel(20)" style="background-image:url('https://picsum.photos/id/1020/400/400')"></div>
-</div>
-
-  <!-- Modal con carrusel -->
-  <div id="modal" onclick="closeCarousel()">
-    <div id="carousel" onclick="event.stopPropagation()">
-      <button class="nav prev" onclick="prevSlide(event)">‹</button>
-      <img id="carousel-img" src="" alt="Imagen del producto">
-      <button class="nav next" onclick="nextSlide(event)">›</button>
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="Imagen de Portafolio">
+            <button class="lightbox-nav prev">&#10094;</button>
+            <button class="lightbox-nav next">&#10095;</button>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
     </div>
-  </div>
 
+    <script src="script.js"></script>
+</body>
+</html>
   <script src="script.js"></script>
 </body>
 </html>
